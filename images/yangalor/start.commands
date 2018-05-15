@@ -1,0 +1,3 @@
+docker volume create otrs-vol
+docker run -d --name otrs-db --mount source=otrs-vol,target=/var/lib/mysql -e MYSQL_ROOT_PASSWORD=654321 mariadb --max_allowed_packet=64M --query_cache_size=32M --innodb_log_file_size=256M --character-set-server=utf8 --collation-server=utf8_general_ci
+docker run -d --link otrs-db -p 80:80 --name otrs-srv yangalor/centos-otrs httpd -DFOREGROUND -c TimeOut 300
