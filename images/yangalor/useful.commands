@@ -10,7 +10,6 @@ su otrs
 
 /opt/otrs/bin/otrs.Daemon.pl start
 /opt/otrs/bin/Cron.sh start
-Docker Pull Command
-Owner
-yangalor
-click
+
+ITOP:
+docker run -d --name itop-db --mount source=itop-vol,target=/var/lib/mysql -e MYSQL_ROOT_PASSWORD=654321 mariadb --max_allowed_packet=64M --query_cache_size=32M --innodb_log_file_size=256M --character-set-server=utf8 --collation-server=utf8_general_ci
